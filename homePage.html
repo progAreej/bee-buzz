@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeeBuzz</title>
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gradient1: {
+                'start': '#e9b767',
+                'end': '#DB8802',
+              },
+              clifford: {
+                DEFAULT: '#ffffff',
+                transparent: 'rgba(255, 255, 255, 0.7)',
+              },
+              gold: "#DB8802",
+              gold1: "#f0cf99",
+              gold3: "#FBF0E7",
+              Khamre: "#941B0C",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .faq-icon {
+        transition: transform 0.2s;
+      }
+      .faq-icon.open {
+        transform: rotate(45deg);
+      }
+    </style>
+</head>
+<body class="m-0 bg-cover bg-center" style="background-image: url('./img/bg-Hero.png'); height: 85vh; background-repeat: no-repeat;">
+    <!-- Navigation Bar -->
+    <nav class="bg-white bg-opacity-70 p-4 flex items-center justify-between px-4 md:px-20 m-4 md:m-10 rounded-full border border-gold fixed top-0 left-0 right-0 z-50">
+        <a href="#" class="md:ml-4">
+            <img src="./img/logo.png" alt="logo" width="150px">
+        </a>
+
+        <!-- Navbar Toggler for Mobile -->
+        <button class="md:hidden ml-auto mr-4" onclick="toggleNavbar()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="hidden md:flex md:items-center md:w-auto md:space-x-6" id="navbarLinks">
+            <a href="#" class="text-black hover:text-gold">Home</a>
+            <a href="#Our-Story" class="text-black hover:text-gold">Our Story</a>
+            <a href="#Worthy-Products" class="text-black hover:text-gold">Worthy Products</a>
+            <a href="#FAQ" class="text-black hover:text-gold">FAQ</a>
+            <a href="#contact.html" class="text-black hover:text-gold">Contact</a>
+        </div>
+
+        <!-- Login Button -->
+        <div class="hidden md:flex items-center">
+          <button class="bg-gradient-to-b from-gradient1-start to-gradient1-end text-white px-8 py-2 rounded-full hover:gold1 transition-all" onclick="redirectToLoginPage()">
+            Log In
+          </button>
+        </div>
+        
+    </nav>
+
+    <!-- Hamburger Menu for Mobile -->
+    <div class="md:hidden fixed top-0 left-0 right-0 bg-white z-20 p-4" id="mobileNavbar" style="display: none;">
+        <div class="flex justify-between items-center mb-4">
+            <!-- Logo -->
+            <a href="#" class="ml-4">
+                <img src="./img/logo.png" alt="logo" width="50px" height="20px">
+            </a>
+
+            <!-- Close Button -->
+            <button class="text-gold" onclick="toggleNavbar()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Links -->
+        <div class="flex flex-col space-y-4">
+            <a href="#" class="text-black hover:text-gold">Home</a>
+            <a href="#Our-Story" class="text-black hover:text-gold">Our Story</a>
+            <a href="#Worthy-Products" class="text-black hover:text-gold">Worthy Products</a>
+            <a href="#FAQ" class="text-black hover:text-gold">FAQ</a>
+            <a href="#Contact" class="text-black hover:text-gold">Contact</a>
+
+            <!-- Mobile Login Button -->
+            <button class="bg-gradient-to-b from-gradient1-start to-gradient1-end text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-all">
+                Log In
+            </button>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero-sec flex justify-center h-screen mt-40">
+        <div class="text-center mt-40">
+            <h1 class="text-gold text-6xl font-bold">
+                Explore the World of Bees <br>
+                with <span class="text-black">Bee</span>Buzz<span class="text-black">!</span>
+            </h1>
+            <br>
+            <p class="text-black text-2xl font-bold">Discover the Sweet World of Bees and Honey</p>
+            <br><br>
+            <div class="flex justify-center space-x-6 mt-8">
+                <button class="font-bold bg-gradient-to-b from-gradient1-start to-gradient1-end text-white px-8 rounded-full hover:bg-blue-700 transition-all">
+                    Shop Now
+                </button>
+                <button class="text-gold px-4 py-2 rounded-full flex items-center">
+                    <img src="./img/play.png" alt="" class="mr-2" width="50px">
+                    <span class="font-bold">The Process of <br> Honey Making</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Story Section -->
+    <div class="Our-Story flex mx-20" id="Our-Story">
+        <div class="w-1/2">
+            <img src="./img/our-story.png" alt="Our Story Image" class="w-full">
+        </div>
+        <div class="w-1/2 text-left ml-10">
+            <h3 class="text-gold text-6xl font-bold mb-4">Our <span class="text-black">Story</span></h3>
+            <br>
+            <p class="text-xl text-gray-800 leading-relaxed">
+                BeeBuzz began with a simple yet profound dream: to bring the purest, most natural honey to households while championing the vital role of bees in our ecosystem. What started as a modest apiary nestled in the countryside soon blossomed into a thriving enterprise dedicated to sustainable beekeeping practices and the production of exceptional honey and bee products.
+                <br><br>
+                The journey of BeeBuzz is rooted in a deep respect for nature's delicate balance and the invaluable contribution of bees to our world. Inspired by a passion for environmental stewardship, our founders set out to create a haven for bees, ensuring they thrive amidst changing landscapes. Through meticulous care and commitment to organic principles, BeeBuzz not only nurtures thriving bee colonies but also cultivates a rich diversity of floral sources, resulting in honey that captures the essence of our natural surroundings.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Worthy Products Section -->
+    <div class="Worthy-Products grid items-center bg-gold3 justify-center text-center py-20 my-20" id="Worthy-Products">
+        <h2 class="text-4xl font-bold text-gold">Buzz-Worthy Products</h2><br>
+        <p class="text-xl text-Khamre">These items are creating quite a buzz. Don't miss out on the best of BeeBuzz!</p><br>
+        <br>
+        <div class="flex space-x-12">
+            <span>
+                <img src="./img/jar.png" alt="">
+                <h3 class="text-xl font-bold text-Khamre my-4">Neutral Honey</h3>
+                <pre>10JD     <span class="line-through text-gray">15JD</span></pre>
+                <pre>weight : 1 KG</pre><br>
+                <button class="bg-Khamre text-white font-bold px-8 py-2 rounded-full">Add to cart</button>
+            </span>
+            <span>
+                <img src="./img/jar.png" alt="">
+                <h3 class="text-xl font-bold text-Khamre my-4">Neutral Honey</h3>
+                <pre>10JD     <span class="line-through text-gray">15JD</span></pre>
+                <pre>weight : 1 KG</pre><br>
+                <button class="bg-Khamre text-white font-bold px-8 py-2 rounded-full">Add to cart</button>
+            </span>
+            <span>
+                <img src="./img/jar.png" alt="">
+                <h3 class="text-xl font-bold text-Khamre my-4">Neutral Honey</h3>
+                <pre>10JD     <span class="line-through text-gray">15JD</span></pre>
+                <pre>weight : 1 KG</pre><br>
+                <button class="bg-Khamre text-white font-bold px-8 py-2 rounded-full">Add to cart</button>
+            </span>
+            <span>
+                <img src="./img/jar.png" alt="">
+                <h3 class="text-xl font-bold text-Khamre my-4">Neutral Honey</h3>
+                <pre>10JD     <span class="line-through text-gray">15JD</span></pre>
+                <pre>weight : 1 KG</pre><br>
+                <button class="bg-Khamre text-white font-bold px-8 py-2 rounded-full">Add to cart</button>
+            </span>
+        </div>
+    </div>
+    <div class="sales flex mt-20 p-10">
+      <div class="w-1/2 text-center">
+        <p class="text-8xl font-bold text-Khamre">GRAB</p><br><br>
+        <p class="text-6xl font-bold text-black">it and</p><br><br>
+        <p class="text-8xl font-bold text-Khamre">SAVE</p><br><br>
+        <p class="text-6xl font-bold text-black">10%</p><br><br>
+        <button class="bg-gradient-to-b from-gradient1-start to-gradient1-end text-white px-8 py-2 rounded-full hover:gold1 transition-all">
+          Shop Now
+      </button>
+      </div>
+      <div class="w-1/2">
+         <img src="./img/jarsale.png" alt="" width="600px" class="rounded-xl"></div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="FAQ bg-gold1 p-20 text-center justify-center my-20 flex" id="FAQ">
+      <div class="mx-10 text-left">
+          <h2 class="text-4xl text-black font-bold mb-4">Buzzing <br><span class="text-gold text-6xl">F</span>requently <br><span class="text-gold text-6xl">A</span>sked <br><span class="text-gold text-6xl">Q</span>uestions
+          <br>Tune In to BeeBuzz!</h2>
+      </div>
+      <div class="space-y-4 w-full max-w-4xl mx-auto">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white p-4 rounded-lg">
+              <button onclick="toggleAnswer(1)" class="flex items-center justify-between w-full">
+                  <h3 class="text-xl font-bold text-gold">What makes BeeBuzz honey different from other honey brands?</h3>
+                  <span id="icon1" class="faq-icon text-gold text-2xl"><i class="fas fa-chevron-down"></i></span>
+              </button>
+              <p id="answer1" class=" text-gray-800 mt-2 bg-gold3 p-4 rounded-lg">
+                  BeeBuzz honey is different due to our commitment to sustainable beekeeping practices, organic principles, and the use of a rich diversity of floral sources, resulting in honey that captures the essence of our natural surroundings.
+              </p>
+          </div>
+          <!-- FAQ Item 2 -->
+          <div class="bg-white p-4 rounded-lg">
+              <button onclick="toggleAnswer(2)" class="flex items-center justify-between w-full">
+                  <h3 class="text-xl font-bold text-gold">How do you ensure the quality and purity of your honey?</h3>
+                  <span id="icon2" class="faq-icon text-gold text-2xl"><i class="fas fa-chevron-down"></i></span>
+              </button>
+              <p id="answer2" class="hidden text-gray-800 mt-2 bg-gold3 p-4 rounded-lg">
+                  We ensure the quality and purity of our honey through meticulous care of our bee colonies, adherence to organic practices, and regular quality checks to maintain the highest standards of honey production.
+              </p>
+          </div>
+          <!-- FAQ Item 3 -->
+          <div class="bg-white p-4 rounded-lg">
+              <button onclick="toggleAnswer(3)" class="flex items-center justify-between w-full">
+                  <h3 class="text-xl font-bold text-gold">Can I visit your apiary and see the beekeeping process?</h3>
+                  <span id="icon3" class="faq-icon text-gold text-2xl"><i class="fas fa-chevron-down"></i></span>
+              </button>
+              <p id="answer3" class="hidden text-gray-800 mt-2 bg-gold3 p-4 rounded-lg">
+                  Yes, we welcome visitors to our apiary to learn more about our beekeeping process and the importance of bees to our ecosystem. Please contact us to schedule a visit.
+              </p>
+          </div>
+          <!-- FAQ Item 4 -->
+          <div class="bg-white p-4 rounded-lg">
+              <button onclick="toggleAnswer(4)" class="flex items-center justify-between w-full">
+                  <h3 class="text-xl font-bold text-gold">What is your return policy for BeeBuzz products?</h3>
+                  <span id="icon4" class="faq-icon text-gold text-2xl"><i class="fas fa-chevron-down"></i></span>
+              </button>
+              <p id="answer4" class="hidden text-gray-800 mt-2 bg-gold3 p-4 rounded-lg">
+                  We offer a satisfaction guarantee on all BeeBuzz products. If you are not completely satisfied with your purchase, please contact us within 30 days for a full refund or exchange.
+              </p>
+          </div>
+      </div>
+  </div>
+   <!-- stay update sec -->
+   <div class="stay-update flex m-20 p-10">
+    <div class="w-full md:w-1/2 text-center md:text-left md:pr-10">
+      <h3 class="text-gold text-4xl md:text-6xl font-bold mb-4">Stay Updated</h3>
+      <p class="text-xl text-gray-800 leading-relaxed mb-4">Subscribe to our newsletter and never miss out on the latest news, updates, and exclusive offers from BeeBuzz. Be the first to know about new products, special promotions, and exciting events!</p>
+      <div class="flex items-center max-w-xs mx-auto md:mx-0">
+        <input type="email" placeholder="Your email address" class="rounded-l-full py-3 px-4 border-2 border-r-0 border-gray-300 focus:outline-none focus:border-gold" required>
+        <button type="submit" class="bg-gold rounded-r-full px-8 py-3">
+          <span class="text-white font-semibold">Subscribe</span>
+        </button>
+      </div>
+    </div>
+    <div class="hidden md:block md:w-1/2 text-center">
+      <img src="./img/stayUpdate.png" alt="Stay Updated Image" class="w-full">
+    </div>
+  </div>
+  
+  </div>
+  <footer class="p-20 bg-gold3" style="background-image: url(./img/logobg.png); background-repeat: no-repeat; background-position: right;background-size: 900px;">
+    <div class="flex justify-between">
+    <img src="./img/logo.png" alt="" width="400px">
+    <div class="mt-20 flex text-Khamre space-x-4 pr-40 text-xl">
+     <a href="#">Home</a>
+     <a href="#Our-Story">Our Story</a>
+     <a href="#Worthy-Products">Worthy Products</a>
+     <a href="#FAQ">FAQ</a>
+     <a href="">Contact</a>
+     </div>
+     </div>
+    <hr><br>
+    <div class="flex justify-between">
+    <p>© 2024 BeeBuzz. All rights reserved.</p>
+    <div class="space-x-4 ">
+      <button class="rounded-full bg-gold"><img src="./img/insta.png" alt="" width="50px"></button>
+      <button class="rounded-full bg-gold"><img src="./img/facebook.png" alt="" width="50px"></button>
+      <button class="rounded-full bg-gold"><img src="./img/twiter.png" alt="" width="50px"></button>
+      <button class="rounded-full bg-gold"><img src="./img/youtube.png" alt="" width="50px"></button>
+    </div>
+    <div>
+
+    </div>
+    </div>
+  </footer>
+  <button id="scrollToTopBtn" class="fixed bottom-10 right-10 bg-gold text-white rounded-full p-3 shadow-md" onclick="scrollToTop()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+      <path fill-rule="evenodd" d="M10 17a1 1 0 0 1-1-1V5.414l-2.293 2.293a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 1 1-1.414 1.414L11 5.414V16a1 1 0 0 1-1 1z" clip-rule="evenodd" />
+    </svg>
+  </button>
+   
+    
+    <script>
+        function toggleNavbar() {
+            var mobileNavbar = document.getElementById("mobileNavbar");
+            if (mobileNavbar.style.display === "none" || mobileNavbar.style.display === "") {
+                mobileNavbar.style.display = "block";
+            } else {
+                mobileNavbar.style.display = "none";
+            }
+        }
+
+        function toggleAnswer(id) {
+        var answer = document.getElementById("answer" + id);
+        var icon = document.getElementById("icon" + id).querySelector("i");
+        if (answer.classList.contains("hidden")) {
+            answer.classList.remove("hidden");
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+        } else {
+            answer.classList.add("hidden");
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+        }
+    }
+    function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' ,
+    });
+  }
+  function redirectToLoginPage() {
+    window.location.href = 'logIn.html';
+  }
+    </script>
+</body>
+</html>
